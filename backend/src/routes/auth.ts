@@ -1,7 +1,8 @@
 import express, { Request, Response } from "express";
-import User from "../models/user";
-import jwt from "jsonwebtoken";
 import { check, validationResult } from "express-validator";
+import User from "../models/user";
+import bcrypt from "bcryptjs";
+import jwt from "jsonwebtoken";
 
 const router = express.Router();
 
@@ -10,45 +11,45 @@ const registerValidation = [
     check("password", "Password with 6 or more characters required").isLength({
         min: 6,
     }),
-    check("firstName", "First Name is required").isString(),
-    check("lastName", "Last Name is required").isString()
-];
+]
 
-router.post("/register",registerValidation, (req: Request, res: Response) => {
+router.post("/login",registerValidation, (req: Request, res: Response) => {
     const handleRegister = async () => {
         const errors = validationResult(req);
         if(!errors.isEmpty()){
-            return res.status(400).json({ message: errors.array() });
+            return res.status(400).json({ message: errors.array()})
         }
 
-        try {
-            let user = await User.findOne({
-                email: req.body.email,
-            });
+        const { email, password } = req.body;
 
-            if (user) {
-                return res.status(400).json({ message: "User already exists" });
+        try{
+            const user = await User.findOne({ email })
+            if(!user){
+                res.status(400).json({ message: "Invalid Credentials" });
             }
-            user = new User(req.body);
-            await user.save();
+
+            const isMatch = await bcrypt.compare(password,user?.password);
+            if(!isMatch){
+                res.status(400).json({ message: "Invalid Credentials" });
+            }
 
             const token = jwt.sign(
-                { userId: user.id },
+                { userId: user?.id },
                 process.env.JWT_SECRET_KEY as string,
                 {
                     expiresIn: "1d",
                 }
             );
 
-            res.cookie("auth_token", token, {
+            res.cookie("auth_token", token,{
                 httpOnly: true,
                 secure: process.env.NODE_ENV === "production",
                 maxAge: 86400000,
             });
-            return res.sendStatus(200);
-        } catch (error) {
+            res.status(200).json({userId: user?._id});
+        } catch(error) {
             console.log(error);
-            res.status(500).send({ message: "Something went wrong" });
+            res.status(500).json({ message: "Something went wrong" });
         }
     };
     handleRegister();
