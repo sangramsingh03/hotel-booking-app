@@ -28,7 +28,7 @@ router.post("/login",registerValidation, (req: Request, res: Response) => {
                 res.status(400).json({ message: "Invalid Credentials" });
             }
 
-            const isMatch = await bcrypt.compare(password,user?.password);
+            const isMatch = await bcrypt.compare(password, user!.password);
             if(!isMatch){
                 res.status(400).json({ message: "Invalid Credentials" });
             }
