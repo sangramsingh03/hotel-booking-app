@@ -3,6 +3,7 @@ from 'react-router-dom'
 import Layout from './layouts/Layout'
 import Register from './pages/Register';
 import SignIn from './pages/SignIn';
+import AddHotel from './pages/AddHotel';
 
 const App = () => {
   return (
@@ -37,6 +38,14 @@ const App = () => {
           element={
             <Layout>
               <SignIn />
+            </Layout>
+          }
+        />
+        <Route 
+          path="/add-hotel" 
+          element={
+            <Layout>
+              <AddHotel />
             </Layout>
           }
         />
