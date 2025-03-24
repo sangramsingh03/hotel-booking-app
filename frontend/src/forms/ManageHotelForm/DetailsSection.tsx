@@ -77,8 +77,6 @@ const DetailsSection = () => {
                 </select>
                 {errors.starRating && (<span className="text-red-500">{errors.starRating.message}</span>)}
             </label>
-            
-
         </div>
     );
 };

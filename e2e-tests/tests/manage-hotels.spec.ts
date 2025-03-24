@@ -16,7 +16,7 @@ test.beforeEach(async ({ page }) => {
 
   await page.getByRole("button", { name: "Login" }).click();
 
-  await expect(page.getByText("Sign-in complete. Welcome back!")).toBeVisible();
+  await expect(page.getByText("Sign-in complete!")).toBeVisible();
 });
 
 test("should allow user to add a hotel", async ({ page }) => {
