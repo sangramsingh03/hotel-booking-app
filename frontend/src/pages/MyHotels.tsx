@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import { fetchMyHotels } from "../api-client";
 import { useQuery } from "react-query";
 import * as apiClient from "../api-client";
 import { BsBuilding, BsMap } from "react-icons/bs";
