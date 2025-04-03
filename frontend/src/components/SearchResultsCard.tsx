@@ -56,18 +56,9 @@ const SearchResultsCard = ({ hotel }: Props) =>{
                         >
                             View More
                         </Link>
-
                     </div>
-
-
-
                 </div>
-
-
-
-
             </div>
-
         </div>
     );
 };
