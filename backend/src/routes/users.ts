@@ -2,19 +2,37 @@ import express, { Request, Response } from "express";
 import User from "../models/user";
 import jwt from "jsonwebtoken";
 import { check, validationResult } from "express-validator";
+import verifyToken from "../middleware/auth";
 
 const router = express.Router();
 
-const registerValidation = [
-    check("email", "Email is required").isEmail(),
-    check("password", "Password with 6 or more characters required").isLength({
-        min: 6,
-    }),
-    check("firstName", "First Name is required").isString(),
-    check("lastName", "Last Name is required").isString()
-];
+router.get("/me", verifyToken, async (req: Request, res: Response) => {
+    const userId = req.userId;
 
-router.post("/register",registerValidation, (req: Request, res: Response) => {
+    try{
+        const user = await User.findById(userId).select("-password");
+        if(!user){
+            res.json(400).json({ message: "User not found" })
+        }
+        res.json(user);
+    }
+    catch(error){
+        console.log(error);
+        res.status(500).json({ message: "something went wrong" });
+    }
+});
+
+router.post(
+    "/register",
+    [
+        check("firstName", "First Name is required").isString(),
+        check("lastName", "Last Name is required").isString(),
+        check("email", "Email is required").isEmail(),
+        check("password", "Password with 6 or more characters required").isLength({
+          min: 6,
+        }),
+    ],
+    async (req: Request, res: Response) => {
     const handleRegister = async () => {
         const errors = validationResult(req);
         if(!errors.isEmpty()){
