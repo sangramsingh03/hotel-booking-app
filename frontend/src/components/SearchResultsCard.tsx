@@ -15,7 +15,7 @@ const SearchResultsCard = ({ hotel }: Props) =>{
                     className="w-full h-full object-cover object-center"
                 />
             </div>
-            <div className="grid grid-rows-[1fr_2fr_1fr]">
+            <div className="grid grid-rows-[1fr_2fr_1fr]" style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
                 <div>
                     <div className="flex items-center">
                         <span className="flex">
@@ -37,8 +37,8 @@ const SearchResultsCard = ({ hotel }: Props) =>{
                     <div className="line-clamp-4">{hotel.description}</div>
                 </div>
 
-                <div className="grid grid-cols-2 items-end whitespace-nowrap">
-                    <div className="flex gap-1 items-center">
+                <div className="grid grid-cols-2 items-end whitespace-nowrap" style={ { display: 'flex', flexDirection: 'column', gap: '2rem', alignItems: 'flex-start' }}>
+                    <div className="flex gap-1 items-center" style={{ display: 'flex', flexDirection: 'row', alignItems: 'center'}}>
                         {hotel.facilities.slice(0,3).map((facility) => (
                             <span className="bg-slate-300 p-2 rounded-lg font-bold text-xs whitespace-nowrap">
                                 {facility}
@@ -48,7 +48,7 @@ const SearchResultsCard = ({ hotel }: Props) =>{
                             {hotel.facilities.length > 3 && `+${hotel.facilities.length - 3} more`}
                         </span>
                     </div>
-                    <div className="flex flex-col items-end gap-1">
+                    <div className="flex flex-col items-end gap-1" style={{ alignItems: 'center', alignSelf: 'flex-end'}}>
                         <span className="font-bold">₹{hotel.pricePerNight} per night</span>
                         <Link 
                             className="bg-blue-600 text-white h-full p-2 font-bold text-xl max-w-fit hover:bg-blue-500"

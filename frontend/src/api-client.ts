@@ -198,16 +198,16 @@ export const createPaymentIntent = async (hotelId: string, numberOfNights: strin
 }
 
 export const createRoomBooking = async (fromData: BookingFormData) => {
-    const response = await fetch(`${API_BASE_URL}/api/hotels/${formData?.hotelId}/bookings`, {
-        method: "POST",
-        credentials: "include",
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify(fromData),
-    })
+    // const response = await fetch(`${API_BASE_URL}/api/hotels/${formData?.hotelId}/bookings`, {
+    //     method: "POST",
+    //     credentials: "include",
+    //     headers: {
+    //         "Content-Type": "application/json",
+    //     },
+    //     body: JSON.stringify(fromData),
+    // })
 
-    if(!response.ok){
-        throw new Error("Error while booking room");
-    }
+    // if(!response.ok){
+    //     throw new Error("Error while booking room");
+    // }
 };
