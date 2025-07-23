@@ -36,7 +36,7 @@ export const SearchContextProvider = ({ children }: SearchContextProviderProps) 
         () => parseInt(sessionStorage.getItem("adultCount") || "1")
     );
     const [childCount, setChildCount] = useState<number>(
-        () => parseInt(sessionStorage.getItem("adultCount") || "0")
+        () => parseInt(sessionStorage.getItem("childCount") || "0")
     );
     const [hotelId, setHotelId] = useState<string>(
         () => sessionStorage.getItem("hotelId") || ""
