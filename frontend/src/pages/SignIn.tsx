@@ -33,10 +33,14 @@ const SignIn = () => {
     })
 
     return (
-        <form className="flex flex-col gap-5" onSubmit={onSubmit}>
+        <form className="flex flex-col gap-5" onSubmit={onSubmit}
+              style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center"}}
+        >
             <h2 className="text-3xl font-bold">Sign In</h2>
 
-            <label className="text-gray-700 text-sm font-bold flex-1">
+            <label className="text-gray-700 text-sm font-bold flex-1"
+                   style={{width: "100%", maxWidth: "400px"}}
+            >
                     Email
                     <input 
                         type="email"
@@ -45,7 +49,9 @@ const SignIn = () => {
                     ></input>
                     {errors.email && (<span className="text-red-500">{errors.email.message}</span>)}
             </label>
-            <label className="text-gray-700 text-sm font-bold flex-1">
+            <label className="text-gray-700 text-sm font-bold flex-1"
+                   style={{width: "100%", maxWidth: "400px"}}
+            >
                     Password
                     <input 
                         type="password"
@@ -60,7 +66,9 @@ const SignIn = () => {
                     ></input>
                     {errors.password && (<span className="text-red-500">{errors.password.message}</span>)}
             </label>
-            <span className="flex items-center justify-between">
+            <span className="flex items-center justify-between"
+                  style={{gap: "1rem"}}
+            >
                 <span className="text-sm">
                     Not Registered? 
                     <Link className="underline" 
@@ -72,6 +80,7 @@ const SignIn = () => {
                 <button 
                     type="submit"
                     className="bg-blue-600 text-white p-2 font-bold hover:bg-blue-500 text-xl"
+                    style={{ "borderRadius": "1rem"}}
                 >
                     Login
                 </button>
