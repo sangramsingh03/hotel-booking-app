@@ -1,4 +1,4 @@
-# Setting Up the MERN Booking App
+# Setting Up the Hotel Booking App
 
 This guide will walk you through the process of setting up the Hotel Booking App on your local machine.
 
