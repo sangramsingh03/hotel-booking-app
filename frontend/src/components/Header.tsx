@@ -15,11 +15,13 @@ const Header = () => {
                         <>
                             <Link className="flex items-center text-white px-3 font-bold hover:bg-blue-600"
                               to="/my-bookings"
+                              style={{borderRadius: "1rem"}}
                             >
                                 My Bookings
                             </Link>
                             <Link className="flex items-center text-white px-3 font-bold hover:bg-blue-600"
                               to="/my-hotels"
+                              style={{borderRadius: "1rem"}}
                             >
                                 My Hotels
                             </Link>

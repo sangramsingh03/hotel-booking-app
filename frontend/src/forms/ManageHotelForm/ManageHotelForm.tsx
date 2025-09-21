@@ -76,11 +76,12 @@ const ManageHotelForm = ({onSave, isLoading, hotel }: Props) => {
                 <FacilitiesSection />
                 <GuestsSection />
                 <ImagesSection />
-                <span className="flex justify-end">
+                <span className="flex justify-center">
                     <button
                         disabled={isLoading}
                         type="submit"
                         className="bg-blue-500 text-white p-2 font-bold hover:bg-blue-500 text-xl disabled:bg-gray-500"
+                        style = {{  padding: "1rem 2rem", borderRadius: "1rem" }}
                     >
                         {isLoading ? "Saving..." : "Save"}
                     </button>
