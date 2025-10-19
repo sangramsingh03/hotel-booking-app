@@ -36,7 +36,7 @@ const SignIn = () => {
         <form className="flex flex-col gap-5" onSubmit={onSubmit}
               style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center"}}
         >
-            <h2 className="text-3xl font-bold">Sign In</h2>
+            <h2 className="text-3xl font-bold">Sign in</h2>
 
             <label className="text-gray-700 text-sm font-bold flex-1"
                    style={{width: "100%", maxWidth: "400px"}}
@@ -46,6 +46,7 @@ const SignIn = () => {
                         type="email"
                         className="border rounded w-full py-1 px-2 font-normal"
                         {...register("email", { required: "This field is required "})}
+                        style={{ "borderRadius" : "1rem"}}
                     ></input>
                     {errors.email && (<span className="text-red-500">{errors.email.message}</span>)}
             </label>
@@ -63,28 +64,28 @@ const SignIn = () => {
                                 message: "Password must be at least 6 characters",
                             },
                         })}
+                        style={{ "borderRadius" : "1rem" }}
                     ></input>
                     {errors.password && (<span className="text-red-500">{errors.password.message}</span>)}
             </label>
             <span className="flex items-center justify-between"
                   style={{gap: "1rem"}}
             >
-                <span className="text-sm">
+                <button 
+                    type="submit"
+                    className="bg-blue-600 text-white px-[1.5rem] py-[0.5rem] font-bold hover:bg-blue-500 text-xl rounded-[1rem]"
+                >
+                    Login
+                </button>
+            </span>
+            <div className="text-sm">
                     Not Registered? 
                     <Link className="underline" 
                     to="/register"
                     >
                         Create an account here
                     </Link>
-                </span>
-                <button 
-                    type="submit"
-                    className="bg-blue-600 text-white p-2 font-bold hover:bg-blue-500 text-xl"
-                    style={{ "borderRadius": "1rem"}}
-                >
-                    Login
-                </button>
-            </span>
+            </div>
         </form>
     );
 };

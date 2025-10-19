@@ -44,7 +44,7 @@ const Detail = () => {
 
             <div className="grid grid-cols-1 lg:grid-cols-4 gap-2">
                 {hotel.facilities.map((facility) => (
-                    <div className="border border-slate-300 rounded-sm p-3">
+                    <div className="border border-slate-300 rounded-[1rem] p-3">
                         {facility}
                     </div>
                 ))}

@@ -8,11 +8,11 @@ type Props = {
 
 const SearchResultsCard = ({ hotel }: Props) =>{
     return (
-        <div className="grid grid-cols-1 xl:grid-cols-[2fr_3fr] border border-slate-300 rounded-lg p-8 gap-8">
-            <div className="w-full h-[300px">
+        <div className="grid grid-cols-1 xl:grid-cols-[2fr_3fr] border border-slate-300 rounded-[1rem] p-8 gap-8">
+            <div className="w-full">
                 <img 
                     src={hotel.imageUrls[0]}
-                    className="w-full h-full object-cover object-center"
+                    className="w-full h-full object-cover object-center rounded-[1rem]"
                 />
             </div>
             <div className="grid grid-rows-[1fr_2fr_1fr]" style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
@@ -49,11 +49,10 @@ const SearchResultsCard = ({ hotel }: Props) =>{
                         </span>
                     </div>
                     <div className="flex flex-col items-end gap-1" style={{ alignItems: 'center', alignSelf: 'flex-end'}}>
-                        <span className="font-bold">₹{hotel.pricePerNight} per night</span>
+                        <span className="font-bold">₹ {hotel.pricePerNight} per night</span>
                         <Link 
-                            className="bg-blue-600 text-white h-full p-2 font-bold text-xl max-w-fit hover:bg-blue-500"
+                            className="bg-blue-600 text-white h-full p-2 font-bold text-xl max-w-fit hover:bg-blue-500 rounded-[1rem] py-[0.rem] px-[1rem]"
                             to = {`/detail/${hotel._id}`}
-                            style={{borderRadius: "1rem"}}
                         >
                             View More
                         </Link>

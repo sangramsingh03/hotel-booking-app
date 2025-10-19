@@ -77,7 +77,7 @@ const GuestInfoForm = ({ hotelId, pricePerNight } : Props) => {
                 className="text-md font-bold"
                 style= {{ alignSelf: "center" }}
             >
-                ₹{pricePerNight} per night
+                ₹ {pricePerNight} per night
             </h3>
             <form
                 onSubmit = {isLoggedIn 
@@ -97,7 +97,7 @@ const GuestInfoForm = ({ hotelId, pricePerNight } : Props) => {
                             minDate={minDate}
                             maxDate={maxDate}
                             placeholderText="Check-in Date"
-                            className="min-w-full bg-white p-2 focus:outline-none"
+                            className="min-w-full bg-white p-2 focus:outline-none rounded-[1rem]"
                             wrapperClassName="min-w-full"
                         />
                     </div>
@@ -112,12 +112,12 @@ const GuestInfoForm = ({ hotelId, pricePerNight } : Props) => {
                             minDate={minDate}
                             maxDate={maxDate}
                             placeholderText="Check-out Date"
-                            className="min-w-full bg-white p-2 focus:outline-none"
+                            className="min-w-full bg-white p-2 focus:outline-none rounded-[1rem]"
                             wrapperClassName="min-w-full"
                         />
                     </div>
 
-                    <div className="flex bg-white px-2 py-1 gap-2">
+                    <div className="flex bg-white px-2 py-1 gap-2 rounded-[1rem]">
                         <label className="items-center flex">
                             Adults:
                             <input 
@@ -157,7 +157,7 @@ const GuestInfoForm = ({ hotelId, pricePerNight } : Props) => {
                         ? (<button className="bg-blue-600 text-white h-full p-2 font-bold hover:bg-blue-500 text-xl"
                             style={{borderRadius: "1rem"}}
                            >
-                                Book Now
+                                Book now
                            </button>
                         )
                         : (<button className="bg-blue-600 text-white h-full p-2 font-bold hover:bg-blue-500 text-xl"

@@ -44,8 +44,7 @@ const SearchBar = () => {
     return (
         <form 
             onSubmit={handleSubmit} 
-            className="-mt-8 p-3 bg-orange-400 rounded shadow-md grid grid-cols-2 lg:grid-cols-3 2xl:grid-cols-5 items-center gap-4"
-            style = {{ borderRadius: '1.5rem'}}
+            className="-mt-8 p-3 bg-white/90 backdrop-blur-xl shadow-0.5xl border-2 border-teal-200 rounded-[1.5rem] shadow-md grid grid-cols-2 lg:grid-cols-3 2xl:grid-cols-5 items-center gap-4"
         >
             <div className="flex flex-row items-center flex-1 bg-white p-2" style= {{ borderRadius: '1rem' }}>
                 <MdTravelExplore size={25} className="mr-2" />

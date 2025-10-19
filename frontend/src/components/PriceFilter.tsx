@@ -8,7 +8,7 @@ const priceFilter = ({ selectedPrice, onChange }: Props) => {
         <div>
             <h4 className="text-md font-semibold mb-2">Max Price</h4>
             <select 
-                className="p-2 border rounded-md w-full"
+                className="p-2 border border-black rounded-[1rem] w-full"
                 value={selectedPrice} 
                 onChange={(event) => 
                     onChange(
