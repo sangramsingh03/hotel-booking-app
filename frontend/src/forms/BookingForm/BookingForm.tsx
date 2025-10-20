@@ -1,4 +1,6 @@
 import { useForm } from "react-hook-form";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import {
   PaymentIntentResponse,
   UserType,
@@ -35,10 +37,13 @@ const BookingForm = ({ currentUser, paymentIntent }: Props) => {
   const search = useSearchContext();
   const { hotelId } = useParams();
   const { showToast } = useAppContext();
+  const [isConfirming, setIsConfirming] = useState(false);
+  const navigate = useNavigate();
 
   const { mutate: bookRoom, isLoading } = useMutation(apiClient.createRoomBooking, {
     onSuccess: () => {
       showToast({message: "Booking successful!", type:"SUCCESS"});
+      navigate("/my-bookings");
     },
     onError: () => {
       showToast({message: "Error saving booking", type:"ERROR"});
@@ -64,6 +69,7 @@ const BookingForm = ({ currentUser, paymentIntent }: Props) => {
     if (!stripe || !elements) {
       return;
     }
+    setIsConfirming(true); 
 
     const result = await stripe.confirmCardPayment(paymentIntent.clientSecret, {
       payment_method: {
@@ -72,7 +78,12 @@ const BookingForm = ({ currentUser, paymentIntent }: Props) => {
     });
 
     if (result?.paymentIntent?.status === "succeeded") {
-      bookRoom({ ...formData, paymentIntentId: result?.paymentIntent?.id });
+      bookRoom(
+        { ...formData, paymentIntentId: result?.paymentIntent?.id },
+        { onSettled: () => setIsConfirming(false) }
+      );
+    } else{
+      setIsConfirming(false);
     }
   };
 
@@ -134,11 +145,11 @@ const BookingForm = ({ currentUser, paymentIntent }: Props) => {
 
       <div className="flex justify-end">
         <button
-          disabled={isLoading}
+          disabled={isLoading || isConfirming}
           type="submit"
           className="bg-blue-600 text-white p-2 font-bold hover:bg-blue-500 text-md disabled:bg-gray-500 rounded-[1rem]" 
         >
-          {isLoading ? "Confirming..." : "Confirm booking"}
+          {(isLoading || isLoading) ? "Confirming..." : "Confirm booking"}
         </button>
       </div>
     </form>
