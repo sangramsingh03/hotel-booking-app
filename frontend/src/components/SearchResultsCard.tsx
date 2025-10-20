@@ -19,8 +19,8 @@ const SearchResultsCard = ({ hotel }: Props) =>{
                 <div>
                     <div className="flex items-center">
                         <span className="flex">
-                            {Array.from({length : hotel.starRating}).map(() => (
-                                <AiFillStar className="fill-yellow-400"/>
+                            {Array.from({length : hotel.starRating}).map((val, index) => (
+                                <AiFillStar key={index} className="fill-yellow-400"/>
                             ))}
                         </span>
                         <span className="ml-1 text-sm">{hotel.type}</span>
@@ -39,8 +39,11 @@ const SearchResultsCard = ({ hotel }: Props) =>{
 
                 <div className="grid grid-cols-2 items-end whitespace-nowrap" style={ { display: 'flex', flexDirection: 'column', gap: '2rem', alignItems: 'flex-start' }}>
                     <div className="flex gap-1 items-center" style={{ display: 'flex', flexDirection: 'row', alignItems: 'center'}}>
-                        {hotel.facilities.slice(0,3).map((facility) => (
-                            <span className="bg-slate-300 p-2 rounded-lg font-bold text-xs whitespace-nowrap">
+                        {hotel.facilities.slice(0,3).map((facility, index) => (
+                            <span 
+                                key={index}
+                                className="bg-slate-300 p-2 rounded-lg font-bold text-xs whitespace-nowrap"
+                            >
                                 {facility}
                             </span>
                         ))}
@@ -54,7 +57,7 @@ const SearchResultsCard = ({ hotel }: Props) =>{
                             className="bg-blue-600 text-white h-full p-2 font-bold text-xl max-w-fit hover:bg-blue-500 rounded-[1rem] py-[0.rem] px-[1rem]"
                             to = {`/detail/${hotel._id}`}
                         >
-                            View More
+                            View more
                         </Link>
                     </div>
                 </div>

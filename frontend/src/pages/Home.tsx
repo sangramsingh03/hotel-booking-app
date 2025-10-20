@@ -12,13 +12,13 @@ const Home = () => {
             <p>Most recent destinations added by our hosts</p>
             <div className="grid gap-4">
                 <div className="grid md:grid-cols-2 grid-cols-1 gap-4">
-                    {topRowHotels.length && topRowHotels.map((hotel) => (
-                        <LatestDestinationCard hotel={hotel} />
+                    {topRowHotels.length && topRowHotels.map((hotel,index) => (
+                        <LatestDestinationCard key={index} hotel={hotel} />
                     ))}
                 </div>
                 <div className="grid md:grid-cols-3 gap-4">
-                    {bottomRowHotels.length && bottomRowHotels.map((hotel) => (
-                        <LatestDestinationCard hotel={hotel} />
+                    {bottomRowHotels.length && bottomRowHotels.map((hotel, index) => (
+                        <LatestDestinationCard key={index} hotel={hotel} />
                     ))}
                 </div>
 

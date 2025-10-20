@@ -38,25 +38,22 @@ const SignIn = () => {
         >
             <h2 className="text-3xl font-bold">Sign in</h2>
 
-            <label className="text-gray-700 text-sm font-bold flex-1"
-                   style={{width: "100%", maxWidth: "400px"}}
+            <label className="w-full max-w-[400px] text-gray-700 text-[1rem] font-bold flex-1"
             >
                     Email
                     <input 
                         type="email"
-                        className="border rounded w-full py-1 px-2 font-normal"
+                        className="border rounded w-full py-2 px-2 font-normal rounded-[1rem]"
                         {...register("email", { required: "This field is required "})}
-                        style={{ "borderRadius" : "1rem"}}
                     ></input>
                     {errors.email && (<span className="text-red-500">{errors.email.message}</span>)}
             </label>
-            <label className="text-gray-700 text-sm font-bold flex-1"
-                   style={{width: "100%", maxWidth: "400px"}}
+            <label className="w-full max-w-[400px] text-gray-700 text-[1rem] font-bold flex-1"
             >
                     Password
                     <input 
                         type="password"
-                        className="border rounded w-full py-1 px-2 font-normal"
+                        className="border rounded w-full py-2 px-2 font-normal rounded-[1rem]"
                         {...register("password", { 
                             required: "This field is required ",
                             minLength: {
@@ -64,7 +61,6 @@ const SignIn = () => {
                                 message: "Password must be at least 6 characters",
                             },
                         })}
-                        style={{ "borderRadius" : "1rem" }}
                     ></input>
                     {errors.password && (<span className="text-red-500">{errors.password.message}</span>)}
             </label>
@@ -78,7 +74,7 @@ const SignIn = () => {
                     Login
                 </button>
             </span>
-            <div className="text-sm">
+            <div className="text-[1rem]">
                     Not Registered? 
                     <Link className="underline" 
                     to="/register"

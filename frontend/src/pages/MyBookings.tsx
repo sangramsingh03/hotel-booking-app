@@ -20,7 +20,7 @@ const MyBookings = () => {
             <img
               src={hotel.imageUrls[0]}
               alt={hotel.name}
-              className="h-full w-full object-fit object-center"
+              className="h-full w-full object-fit rounded-[1rem]"
             />
           </div>
           <div className="flex flex-col gap-4 overflow-y-auto max-h-[300px]">

@@ -9,8 +9,11 @@ const StarRatingFilter = ({ selectedStars, onChange }: Props) => {
             <h4 className="text-md font-semibold mb-2">
                 Property Rating
             </h4>
-            {["5","4","3","2","1"].map((star) => (
-                <label className="flex items-center space-x-2">
+            {["5","4","3","2","1"].map((star, index) => (
+                <label 
+                    key={index}
+                    className="flex items-center space-x-2"
+                >
                     <input 
                         type="checkbox"
                         className="rounded"
