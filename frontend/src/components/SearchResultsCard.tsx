@@ -11,14 +11,14 @@ const SearchResultsCard = ({ hotel }: Props) =>{
     const [showFullFacilities, setShowFullFacilities] = useState<boolean>(false);
     const facilitiesArray = showFullFacilities ? hotel.facilities : hotel.facilities.slice(0,3);
     return (
-        <div className="flex justify-center rounded-[1rem] p-[1.5rem] gap-[2rem] border border-slate-300">
-            <div className="w-[40%]">
+        <div className="flex justify-center rounded-[1rem] p-[1rem] sm:p-[1.5rem] gap-[1.5rem] sm:gap-[2rem] border border-slate-300">
+            <div className="w-[50%] h-[310px] sm:w-[40%] sm:h-[auto]">
                 <img 
                     src={hotel.imageUrls[0]}
                     className="w-full h-full object-cover rounded-[1rem]"
                 />
             </div>
-            <div className="flex flex-col gap-[1rem] w-[60%]">
+            <div className="flex flex-col gap-[0.5rem] sm:gap-[1rem] w-[60%]">
                 <div>
                     <div className="flex items-center">
                         <span className="flex">
