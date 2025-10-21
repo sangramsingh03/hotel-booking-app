@@ -36,7 +36,7 @@ const Detail = () => {
                         <img
                             src={image}
                             alt={hotel.name}
-                            className="rounded-md w-full h-full object-cover object-center"
+                            className="rounded-[1rem] w-full h-full object-cover"
                         />
                     </div>
                 ))}
