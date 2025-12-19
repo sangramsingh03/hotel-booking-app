@@ -6,7 +6,7 @@ const Header = () => {
     const { isLoggedIn } = useAppContext();
     return (
         <div className="bg-blue-800 py-6">
-            <div className="container mx-auto flex flex-col gap-2 sm:gap-0 sm:flex-row items-center sm:justify-between">
+            <div className="px-4 py-0 sm:container mx-auto flex flex-col gap-2 sm:gap-0 sm:flex-row items-center sm:justify-between">
                 <div className='flex justify-between items-center w-full'>
                     <Link to="/" className='text-2xl sm:text-3xl text-white font-bold'>Holidays.com</Link>
                     {!isLoggedIn && (

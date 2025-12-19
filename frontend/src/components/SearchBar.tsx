@@ -44,7 +44,7 @@ const SearchBar = () => {
     return (
         <form 
             onSubmit={handleSubmit} 
-            className="-mt-8 p-3 bg-white/90 backdrop-blur-xl shadow-0.5xl border-2 border-teal-200 rounded-[1.5rem] shadow-md grid grid-cols-2 lg:grid-cols-3 2xl:grid-cols-5 items-center gap-4"
+            className="-mt-8 pr-0 pb-2 pl-[0.3rem] sm:p-3 bg-white/90 backdrop-blur-xl shadow-0.5xl border-2 border-teal-200 rounded-[1.5rem] shadow-md grid grid-cols-2 lg:grid-cols-3 2xl:grid-cols-5 items-center gap-4 pt-2"
         >
             <div className="flex flex-row items-center flex-1 bg-white p-2" style= {{ borderRadius: '1rem' }}>
                 <MdTravelExplore size={25} className="mr-2" />
@@ -90,7 +90,7 @@ const SearchBar = () => {
                     minDate={minDate}
                     maxDate={maxDate}
                     placeholderText="Check-in Date"
-                    className="min-w-full bg-white p-2 focus:outline-none react-datepicker-ignore-onclickoutside rounded-[1rem]"
+                    className="min-w-full bg-white p-2 focus:outline-none react-datepicker-ignore-onclickoutside rounded-[1rem] w-full"
                     wrapperClassName="min-w-full"
                 />
             </div>
@@ -104,7 +104,7 @@ const SearchBar = () => {
                     minDate={minDate}
                     maxDate={maxDate}
                     placeholderText="Check-out Date"
-                    className="min-w-full bg-white p-2 focus:outline-none react-datepicker-ignore-onclickoutside rounded-[1rem]"
+                    className="min-w-full bg-white p-2 focus:outline-none react-datepicker-ignore-onclickoutside rounded-[1rem] w-full"
                     wrapperClassName="min-w-full"
                 />
             </div>
