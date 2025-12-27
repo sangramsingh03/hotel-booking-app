@@ -19,7 +19,7 @@ const Header = () => {
                 <div className="flex gap-3 sm:justify-end w-full">
                     {isLoggedIn ? (
                         <>
-                            <Link className="flex items-center text-white m-0 p-2 font-bold hover:bg-blue-600 rounded-[1rem]"
+                            <Link className="flex items-center text-white m-0 sm:p-2 font-bold hover:bg-blue-600 rounded-[1rem]"
                               to="/my-bookings"
                             >
                                 My Bookings

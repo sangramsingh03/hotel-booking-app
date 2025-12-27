@@ -56,7 +56,7 @@ const SearchResultsCard = ({ hotel }: Props) =>{
                             {hotel.facilities.length > 3 && `Click to see more`}
                         </span>)}
                     </div>
-                    <div className="flex flex-col items-center gap-1 self-center sm:self-end">
+                    <div className="flex flex-col items-center gap-1 sm:self-end">
                         <span className="font-bold">₹ {hotel.pricePerNight} per night</span>
                         <Link 
                             className="bg-blue-600 text-white h-full font-bold text-xl max-w-fit hover:bg-blue-500 rounded-[1rem] py-[0.5rem] px-[1rem]"

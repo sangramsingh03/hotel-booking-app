@@ -36,26 +36,36 @@ const MyHotels = () => {
                     <div key={index} className="flex flex-col justify-between border border-slate-300 rounded-[1rem] p-8 gap-5">
                         <h2 className="text-2xl font-bold">{hotel.name}</h2> 
                         <div className="whitespace-pre-line">{hotel.description}</div>
-                        <div className="grid grid-cols-5 gap-2">
-                            <div className="border border-slate-300 rounded-[1rem] p-3 flex items-center">
-                                <BsMap className="mr-1"/>
-                                {hotel.city}, {hotel.country}
+                        <div className="flex overflow-x-auto gap-4">
+                            <div className="border border-slate-300 rounded-[1rem] py-3 px-4 flex items-center gap-2 min-w-[196px] sm:min-w-0">
+                                <div className="w-[10%]">
+                                    <BsMap />
+                                </div>
+                                <p className="flex-1 whitespace-nowrap">{hotel.city}, {hotel.country}</p>
                             </div>
-                            <div className="border border-slate-300 rounded-[1rem] p-3 flex items-center">
-                                <BsBuilding className="mr-1"/>
-                                {hotel.type}
+                            <div className="border border-slate-300 rounded-[1rem] py-3 px-4 flex items-center gap-2  min-w-[196px] sm:min-w-0">
+                                <div className="w-[10%]">
+                                    <BsBuilding />
+                                </div>
+                                <p className="flex-1 whitespace-nowrap">{hotel.type}</p>
                             </div>
-                            <div className="border border-slate-300 rounded-[1rem] p-3 flex items-center">
-                                <BiMoney className="mr-1"/>
-                                ₹ {hotel.pricePerNight} per night
+                            <div className="border border-slate-300 rounded-[1rem] py-3 px-4 flex items-center gap-2  min-w-[196px] sm:min-w-0">
+                                <div className="w-[10%]">
+                                    <BiMoney />
+                                </div>
+                                <p className="flex-1 whitespace-nowrap">₹ {hotel.pricePerNight} per night</p>
                             </div>
-                            <div className="border border-slate-300 rounded-[1rem] p-3 flex items-center">
-                                <BiHotel className="mr-1"/>
-                                {hotel.adultCount} adults, {hotel.childCount} children
+                            <div className="border border-slate-300 rounded-[1rem] py-3 px-4 flex items-center gap-2  min-w-[196px] sm:min-w-0">
+                                <div className="w-[10%]">
+                                    <BiHotel />
+                                </div>
+                                <p className="flex-1 whitespace-nowrap">{hotel.adultCount} adults, {hotel.childCount} children</p>
                             </div>
-                            <div className="border border-slate-300 rounded-[1rem] p-3 flex items-center">
-                                <BiStar className="mr-1"/>
-                                {hotel.starRating} Star Rating
+                            <div className="border border-slate-300 rounded-[1rem] py-3 px-4 flex items-center gap-2  min-w-[196px] sm:min-w-0">
+                                <div className="w-[10%]">
+                                    <BiStar />
+                                </div>
+                                <p className="flex-1 whitespace-nowrap">{hotel.starRating} Star Rating</p>
                             </div>
                         </div>
                         <span className="flex justify-end">
